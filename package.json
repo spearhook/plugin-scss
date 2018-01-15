@@ -1,0 +1,12 @@
+{
+  "name": "@spearhook/plugin-scss",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "viveleroi",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.7.2",
+    "sass-graph": "^2.2.4",
+    "through2": "^2.0.3"
+  }
+}
