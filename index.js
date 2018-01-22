@@ -9,7 +9,7 @@ module.exports = function(opts) {
     let graph;
 
     return (conf, execOpts) => {
-        return through2.obj((file, encoding, cb) => {
+        return through2.obj(function(file, encoding, cb) {
             if (!graph) {
                 // Cache graph of scss imports so we can find non-partial ancestors
                 graph = grapher.parseDir(file.base, {
@@ -22,7 +22,7 @@ module.exports = function(opts) {
                     file: filepath
                 }, opts), (err, result) => {
                     if (err) {
-                        return cb(err, file);
+                        return this.emit('spearhook:error', { err, file });
                     }
 
                     file.contents = result.css;
