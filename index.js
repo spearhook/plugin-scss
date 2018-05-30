@@ -10,7 +10,7 @@ module.exports = function(opts) {
 
     return (conf, execOpts) => {
         return through2.obj(function(file, encoding, cb) {
-            if (!graph) {
+            if (conf.graph && !graph) {
                 // Cache graph of scss imports so we can find non-partial ancestors
                 graph = grapher.parseDir(file.base, {
                     loadPaths: opts.includePaths || []
@@ -35,9 +35,11 @@ module.exports = function(opts) {
             if (!PARTIAL_REGEX.test(file.basename)) {
                 execute(file.path);
             }
-            else if (!execOpts.initialRun) {
+            else if (!execOpts.initialRun && conf.graph) {
+                var cache = graph.index[file.path];
+
                 // Skip traversal for partials without parents
-                if (!graph.index[file.path].importedBy.length) {
+                if (!cache || !cache.importedBy.length) {
                     return cb(null);
                 }
 
