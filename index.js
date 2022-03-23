@@ -1,11 +1,11 @@
-const grapher = require('sass-graph');
-const path = require('path');
-const sass = require('node-sass');
-const through2 = require('through2');
+import grapher from 'sass-graph';
+import path from 'path';
+import sass from 'node-sass';
+import through2 from 'through2';
 
 const PARTIAL_REGEX = /^_/;
 
-module.exports = function(opts) {
+export default function(opts) {
     let graph;
 
     return (conf, execOpts) => {

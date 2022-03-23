@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "viveleroi",
   "license": "MIT",
+  "type": "module",
   "peerDependencies": {
     "node-sass": "^7.x"
   },
