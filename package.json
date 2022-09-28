@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "peerDependencies": {
-    "node-sass": "^7.x"
+    "sass": "^1.x"
   },
   "dependencies": {
     "sass-graph": "^4.0.0",

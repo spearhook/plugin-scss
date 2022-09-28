@@ -1,6 +1,6 @@
 import grapher from 'sass-graph';
 import path from 'path';
-import sass from 'node-sass';
+import sass from 'sass';
 import through2 from 'through2';
 
 const PARTIAL_REGEX = /^_/;
